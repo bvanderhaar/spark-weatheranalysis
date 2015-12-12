@@ -21,7 +21,10 @@ def mapper(line):
         # combine into string that can be cast to decimal
         degrees = sign + before_decimal + "." + line[92:93]
         if (is_number(degrees)):
-            return float(degrees)
+            if (float(degrees) < 618):
+                return float(degrees)
+            else:
+                return 0
         else:
             return 0
 
