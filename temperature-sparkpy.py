@@ -37,9 +37,9 @@ if __name__ == "__main__":
         exit(-1)
     sc = SparkContext(appName="PySparkTemperature")
     lines = sc.textFile(sys.argv[1], 1)
-    counts = lines.map(mapper) \
+    output = lines.map(mapper) \
                   .reduce(reducer)
-    output = counts.collect()
+    
     print ("Max " + output)
 
     sc.stop()
