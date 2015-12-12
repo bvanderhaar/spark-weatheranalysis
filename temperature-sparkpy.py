@@ -3,17 +3,16 @@ from __future__ import print_function
 
 import sys
 from operator import add
-from decimal import Decimal
 from pyspark import SparkContext
 
 def mapper(line):
         # positive or negative
-        sign = word[88:1];
+        sign = line[87:88]
         # before the decimal point, remove leading zeros
-        before_decimal = word[89:4].lstrip("0");
+        before_decimal = line[88:92].lstrip("0")
         # combine into string that can be cast to decimal
-        degrees = sign + before_decimal + "." + word[93:1];
-        return decimal.Decimal(degrees)
+        degrees = sign + before_decimal + "." + line[92:93]
+        return float(degrees)
 
 #def reducer(x,y):
 #        return x+y
@@ -28,7 +27,6 @@ if __name__ == "__main__":
                   .map(mapper) \
                   .reduce(Math.max)
     output = counts.collect()
-    for (word, count) in output:
-        print("%s: %i" % (word, count))
+    print "Max " + output
 
     sc.stop()
