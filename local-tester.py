@@ -16,4 +16,4 @@ def mapper(line):
         print "degrees: " + degrees
         return float(degrees)
 
-print (mapper(data))
+print ('Max = %.1f' % mapper(data))

@@ -39,7 +39,7 @@ if __name__ == "__main__":
     lines = sc.textFile(sys.argv[1], 1)
     output = lines.map(mapper) \
                   .reduce(reducer)
-    
-    print ("Max " + output)
+
+    print ('Max = %.1f' % output)
 
     sc.stop()
