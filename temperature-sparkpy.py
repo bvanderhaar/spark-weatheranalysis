@@ -27,6 +27,6 @@ if __name__ == "__main__":
                   .map(mapper) \
                   .reduce(Math.max)
     output = counts.collect()
-    print "Max " + output
+    print ("Max " + output)
 
     sc.stop()
