@@ -15,8 +15,11 @@ def mapper(line):
         degrees = sign + before_decimal + "." + line[92:93]
         return float(degrees)
 
-#def reducer(x,y):
-#        return x+y
+def reducer(a, b):
+    if a > b:
+        return a
+    else:
+        return b
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
@@ -24,9 +27,8 @@ if __name__ == "__main__":
         exit(-1)
     sc = SparkContext(appName="PySparkTemperature")
     lines = sc.textFile(sys.argv[1], 1)
-    counts = lines.flatMap(lambda x: x.split(' ')) \
-                  .map(mapper) \
-                  .reduce(Math.max)
+    counts = lines.map(mapper) \
+                  .reduce(reducer)
     output = counts.collect()
     print ("Max " + output)
 
