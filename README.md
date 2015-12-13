@@ -8,6 +8,7 @@ PySpark is used to map the data by isolating the air temperature recording.  The
 Testing is run on a single EOS machine as a baseline.  By default, the Spark output provides timing of program execution; these numbers are recorded and graphed.  Tests were run on a single node and on a twenty node cluster.
 
 ## Discussion
+<img src="https://raw.githubusercontent.com/bvanderhaar/spark-weatheranalysis/master/raw-data.png">
 Significant speedup is observed when running on multiple nodes.  Apache Spark's ability to distribute the workload is very effective across large data sets.
 
 ## Conclusion

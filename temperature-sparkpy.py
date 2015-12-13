@@ -1,4 +1,4 @@
-
+# Brett VanderHaar
 from __future__ import print_function
 
 import sys
@@ -27,7 +27,7 @@ def reducer(a, b):
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
-        print("Usage: wordcount <file>", file=sys.stderr)
+        print("Usage: program <file>", file=sys.stderr)
         exit(-1)
     sc = SparkContext(appName="PySparkTemperature")
     lines = sc.textFile(sys.argv[1], 1)
