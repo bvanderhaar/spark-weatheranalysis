@@ -13,7 +13,7 @@ def mapper(line):
         before_decimal = line[88:91].lstrip("0")
         # combine into string that can be cast to decimal
         degrees = sign + before_decimal + "." + line[91]
-        if (float(degrees) < 61.8):
+        if (float(degrees) < 800):
             return float(degrees)
         else:
             return 0
