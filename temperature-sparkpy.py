@@ -6,27 +6,15 @@ import math
 from operator import add
 from pyspark import SparkContext
 
-def is_number(s):
-    try:
-        float(s)
-        return True
-    except ValueError:
-        return False
-
 def mapper(line):
         # positive or negative
         sign = line[87:88]
         # before the decimal point, remove leading zeros
-        before_decimal = line[88:92].lstrip("0")
+        before_decimal = line[88:91].lstrip("0")
         # combine into string that can be cast to decimal
-        degrees = sign + before_decimal + "." + line[92:93]
-        if (is_number(degrees)):
-            if (float(degrees) < 618):
-                return float(degrees)
-            else:
-                return 0
-        else:
-            return 0
+        degrees = sign + before_decimal + "." + line[91]
+        return float(degrees)
+
 
 def reducer(a, b):
     if a > b:

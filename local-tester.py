@@ -13,10 +13,11 @@ def mapper(line):
         # positive or negative
         sign = line[87:88]
         # before the decimal point, remove leading zeros
-        before_decimal = line[88:92].lstrip("0")
+        before_decimal = line[88:91].lstrip("0")
+        print "before decimal: " + before_decimal
         # combine into string that can be cast to decimal
-        degrees = sign + before_decimal + "." + line[92:93]
-        
+        degrees = sign + before_decimal + "." + line[91]
+        print "Place 91: " + line[91]
         if (is_number(degrees)):
             if (float(degrees) < 618):
                 return float(degrees)
